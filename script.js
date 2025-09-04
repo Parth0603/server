@@ -1,4 +1,8 @@
-const socket = io('http://localhost:3000');
+const socket = io({
+  transports: ['websocket', 'polling'],
+  timeout: 20000,
+  forceNew: true
+});
 
 const playerName = localStorage.getItem("playerName");
 const playerColor = localStorage.getItem("playerColor");
